@@ -1,7 +1,12 @@
 const app = require('./app');
+const config = require('./config');
+const connectDB = require('./config/database');
+
 const start = async () => {
-  app.listen(3000, () => {
-    console.log(`Server running on port 3000 [development]`);
+  await connectDB();
+
+  app.listen(config.port, () => {
+    console.log(`Server running on port ${config.port} [${config.nodeEnv}]`);
   });
 };
 

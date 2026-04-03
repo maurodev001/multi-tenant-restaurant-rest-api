@@ -10,7 +10,7 @@ app.get('/health', (_req, res) => {
 });
 
 app.use((_req, res) => {
-  res.status(404).json({ success: false, error: 'Route not found' });
+  res.status(404).json({ success: false, error: 'API route not found' });
 });
 
 module.exports = app;
