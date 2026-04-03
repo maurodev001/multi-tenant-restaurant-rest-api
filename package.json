@@ -1,0 +1,30 @@
+{
+    "name": "multi-tenant-restaurant-api",
+    "version": "1.0.0",
+    "description": "A simplified multi-tenant Restaurant REST API using Node.js and MongoDB",
+    "main": "src/server.js",
+    "scripts": {
+      "start": "node src/server.js",
+      "dev": "nodemon src/server.js",
+      "seed": "node src/scripts/seed.js"
+    },
+    "keywords": [
+      "restaurant",
+      "multi-tenant",
+      "rest-api",
+      "nodejs",
+      "mongodb"
+    ],
+    "author": "Mauricio Escobar",
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^17.4.0",
+      "express": "^5.2.1",
+      "joi": "^18.1.2",
+      "mongoose": "^9.3.3"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.14"
+    }
+  }
+  
