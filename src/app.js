@@ -1,5 +1,9 @@
 const express = require('express');
+const tenantResolver = require('./middlewares/tenantResolver');
+const errorHandler = require('./middlewares/errorHandler');
 const tenantRoutes = require('./routes/tenant.routes');
+const restaurantRoutes = require('./routes/restaurant.routes');
+const menuItemRoutes = require('./routes/menuItem.routes');
 
 const app = express();
 
@@ -12,8 +16,13 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/tenants', tenantRoutes);
 
+app.use('/api/restaurants', tenantResolver, restaurantRoutes);
+app.use('/api/restaurants/:restaurantId/menu', tenantResolver, menuItemRoutes);
+
 app.use((_req, res) => {
-  res.status(404).json({ success: false, error: 'API route not found' });
+  res.status(404).json({ success: false, error: 'Route not found' });
 });
+
+app.use(errorHandler);
 
 module.exports = app;
